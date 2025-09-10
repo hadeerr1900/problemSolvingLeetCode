@@ -20,14 +20,16 @@ public class plusOne_p99 {
         ///////////////////////
 
     public int[] plusOneSecondSoluation(int[] digits) {
-        int n = digits.length;
-        String s = "";
-        for (int i = 0; i <n; i++) {
-            s = s + digits[i];
+
+        StringBuilder s = new StringBuilder();
+        for (int digit : digits) {
+            s.append(digit);
         }
-        int revert = Integer.parseInt(s);
-        int result = revert + 1;
-        String StringRes = Integer.toString(result);
+
+        BigInteger plusOneAdded = new BigInteger(s.toString());
+        plusOneAdded = plusOneAdded.add(BigInteger.ONE);
+        String StringRes =plusOneAdded.toString();
+        
         digits=new int[StringRes.length()];
         for (int i = 0; i < StringRes.length(); i++) {
             char ch = StringRes.charAt(i);
